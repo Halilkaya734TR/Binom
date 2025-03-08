@@ -1,38 +1,38 @@
 #include <stdio.h>
-int faktoriyel(int x)
+int faktoriyel(int x) //Faktoriyel hesaplar.
 {
-    int m=1;
+    int m=1; //faktoriyel çarpımlarını tutar.
     for(int i=1;i<=x;i++)
-       m*=i; 
+       m*=i;  //Faktoriyel hesaplanır döngüye göre.
     return m;
 }
 
 
-int Kombinasyon(int a,int i)
+int Kombinasyon(int us,int i) //Kombinasyon hesaplar.
 {
-  int c;
-  c = faktoriyel(a) /(faktoriyel(i)*faktoriyel(a-i));
-  return c;
+  int faktoriyel;
+  faktoriyel = faktoriyel(us) /(faktoriyel(i)*faktoriyel(us-i)); //Kombinasyon formülündeki faktoriyerleri hesaplamak için kullanılır
+  return faktoriyel;
 }
 
-void Yazdir(int a)
+void Yazdir(int us)
 {
-    printf("(x+y)^%d Acilimi:",a);
-    for(int i=0;i<=a;i++)
+    printf("(x+y)^%d Acilimi:",us);
+    for(int i=0;i<=us;i++)
     {
-        int b = Kombinasyon(a,i);
-        printf("%d * a^%d * b^%d",b,a-i,i);
-        if(i<a)
-        printf("+");
+        int kombinasyon = Kombinasyon(us,i); //kombinasyon fonksiyonundaki değeri "kombinasyon" değerine atar.
+        printf("%d * x^%d * y^%d",kombinasyon,us-i,i);
+        if(i<us)
+        printf("+"); //Değerler arasına "+" koyar.
     }
 
 }
 
 int main()
 {
-  int a;
+  int us;
   printf("Üssü belirleyiniz:\n");
-  scanf("%d",&a);
-  Yazdir(a);
+  scanf("%d",&us); //Kullanıcıdan üs alınır.
+  Yazdir(us); //Yazdır fonksiyonuna gönderir.
 }
 
